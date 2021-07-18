@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload=function () {
+          function displayInfo(args) {
+              var output='';
+              if(typeof args.name=='string')
+              {
+                  output+='Name='+args.name+'\n';
+              }
+              if(typeof args['age']=='number')
+              {
+                  output+='Age='+args.age+'\n';
+              }
+              console.log(output);
+          }
+          displayInfo({name:'yangmin'});
+          displayInfo({name:'hehuan',age:19});
+        };
+    </script>
+</head>
+<body>
+<h1>object类型</h1>
+</body>
+</html>

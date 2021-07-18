@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    // var xhr=new XMLHttpRequest();
+    // xhr.open('get','review_1.html',false);
+    // xhr.send(null);
+    // console.log(xhr.status);
+    // console.log(xhr.statusText);
+    // if((xhr.status>=200&&xhr.status<300)||xhr.status==304)
+    // {
+    //     console.log(xhr.responseText);
+    // }
+    // console.log(xhr.responseText);
+    // document.body.innerHTML=xhr.responseText;
+
+    // var xhr=new XMLHttpRequest();
+    // xhr.onreadystatechange=function () {
+    //     console.log('------------------------------------------------');
+    //     console.log(xhr.readyState);
+    //     console.log('------------------------------------------------');
+    //     if(xhr.readyState==2)
+    //     {
+    //         xhr.abort();
+    //         xhr=null;
+    //     }
+    // };
+    // console.log('xhr.open()');
+    // xhr.open('get','ms.js',true);
+    // console.log('xhr.send(null)');
+    // xhr.send(null);
+    var xhr=new XMLHttpRequest();
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState==4)
+        {
+            if((xhr.status>=200&&xhr.status<300)||xhr.status==304)
+            {
+                console.log(xhr.responseText);
+                var allResponseHeaders=xhr.getAllResponseHeaders();
+                console.log(allResponseHeaders);
+            }
+            else
+            {
+                console.log('XMLHttpRequest failed');
+            }
+        }
+    };
+    xhr.open('post','ms.js?'+encodeURIComponent('name=杨敏&age=你妈妈'),true);
+    xhr.setRequestHeader('myHead','myValue');
+    xhr.send('yangminn');
+
+</script>
+</body>
+</html>

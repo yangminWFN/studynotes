@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理程序</title>
+</head>
+<body>
+<div onclick="showSelf()">我是div</div>
+<script type="text/javascript">
+    //在html元素中指定的事件处理程序必须是在全局作用域下，不然无法访问到
+    function showSelf(){
+        alert('我是div');
+    }
+
+    // window.onload=function () {
+    //   function showSelf() {
+    //       alert('我是里面div');
+    //   }
+    // };
+</script>
+</body>
+</html>

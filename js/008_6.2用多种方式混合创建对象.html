@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>用多种方式混合创建对象：
+</h1>
+<h3>
+    <p>用构造函数和原型模式混合方式创建对象：将实例属性写在构造函数中，将共享的变量和方法写在原型中</p>
+    <p>用动态原型模式创建对象：当第一次创建对象时检测是否有哪个属性，如果没有则在原型中添加该属性（只需做一个判断即可）</p>
+    <p></p>
+</h3>
+<script type="text/javascript">
+    // function Person() {
+    //     this.name='yangmin';
+    //     this.age=19;
+    //     this.colors=['red','blue'];
+    // }
+    // Person.prototype.getAge=function () {
+    //     return this.age;
+    // }
+    // var person1=new Person();
+    // var person2=new Person();
+    // person1.colors.push('black');
+    // console.log(person1.colors);
+    // console.log(person2.colors);
+    // console.log(person1);
+
+    function Person() {
+        this.name='yangmin';
+        this.age=19;
+        this.colors=['red','blue'];
+        if((typeof this.getAge)!='function')
+        {
+            Person.prototype.getAge=function () {
+                return this.age;
+            }
+        }
+    }
+    var person1=new Person();
+    var person2=new Person();
+    person1.colors.push('black');
+    console.log(person1.colors);
+    console.log(person2.colors);
+    console.log(person1);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    window.onload=function () {
+        //函数参数
+        function f(a,b,...rest) {
+            if(arguments.length===0)
+            {
+                return (function () {
+                  alert("没有参数");
+                })();
+            }
+            else
+            {
+                for(let r of rest)
+                {
+                    console.log(r);
+                }
+            }
+        }
+        f(1,2,3,4,5);
+
+        //let块级作用域测试
+        function f1() {
+            let x=10;
+            function f2() {
+                let y=x+1;
+                console.log(y);//11
+            }
+            return f2();
+        }
+        f1();
+
+        //解构赋值
+        let [x,y,z]=['yangmin','hehuan','cc']
+        let [x1,[x2,x3]]=[1,[2,3]]
+        console.log(x+y+z);
+        console.log(''+x1+x2+x3);
+        var person = {
+            name: '小明',
+            age: 20,
+            gender: 'male',
+            passport: 'G-12345678',
+            school: 'No.4 middle school',
+            address: {
+                city: 'Beijing',
+                street: 'No.1 Road',
+                zipcode: '100001'
+            }
+        };
+        var {name,gender}=person;
+        console.log(name+gender);
+        var {name:Name,gender:Gender}=person;
+        console.log(Name+Gender);
+        var k=1,j=2;
+        [k,j]=[j,k];
+        console.log("k="+k+'j='+j);
+        let {hostname,pathname}=location;
+        console.log("域名："+hostname+',路径名：'+pathname);
+        function GetDate({year,month,day,hour=0,minu=0,sec=0}){
+            return new Date(year+'-'+month+'-'+day+' '+hour+':'+minu+':'+sec);
+        }
+        let day=GetDate({year:2015,month:12,day:10});
+        console.log(day);
+
+        //对象中的函数：方法
+        function getAge(){
+                return this.age;
+        }
+        let xiaoming={
+            name:'xiaoming',
+            age:19,
+            getAge:getAge
+        };
+        console.log(xiaoming.getAge());
+        console.log(getAge());
+        //可以用函数的apply方法来指定函数内部的this指向，不然this会指向window
+        console.log(getAge.apply(xiaoming));
+
+        //用apply的装饰器
+        let count=0;
+        let oldFunc=window.parseInt;
+        window.parseInt=function () {
+            count=count+1;
+            return oldFunc.apply(window,arguments);
+        };
+        parseInt('1');
+        parseInt('1');
+        parseInt('1');
+        console.log(count);
+    };
+</script>
+<body>
+<p>函数</p>
+</body>
+</html>

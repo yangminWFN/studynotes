@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5</title>
+</head>
+<body>
+<div class="class1 class2 class3">我是div1</div>
+<div class="class1 ">我是div2</div>
+<button id="myButton">按钮1</button>
+<div id="myDiv" data-myname="yangmin" data-appid="123456" data-age="19">自定义属性data-</div>
+<script type="text/javascript">
+
+    if(document.readyState=='complete')
+    {
+        console.log('我加载完成了');
+    }
+
+    var class1=document.getElementsByClassName('class1');
+    console.log(class1);
+    var class2=document.getElementsByClassName('class2 class3');
+    console.log(class2);
+    // setTimeout(function () {
+    //     class2[0].classList.remove('class1');
+    // },5000);
+    var btn=document.getElementById('myButton');
+    // btn.focus();
+    console.log(document.activeElement==btn);
+    // setInterval(function () {
+    //     if(document.activeElement==btn)
+    //     {
+    //         alert('我获得了焦点');
+    //     }
+    // },1000);
+    setTimeout(function () {
+        if(document.readyState=='complete')
+        {
+            console.log('我加载完成了');
+        }
+    },1000);
+    console.log(document.charset);
+    var dataDiv=document.getElementById('myDiv');
+    var dataSet=dataDiv.dataset;
+    console.log('name='+dataSet.myname+',age='+dataSet.age+',appid='+dataSet.appid);
+    console.log(document.documentMode);
+</script>
+</body>
+</html>

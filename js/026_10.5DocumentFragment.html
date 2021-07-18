@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DocumentFragment类型</title>
+</head>
+<body>
+<div>文档片段类型</div>
+<ul></ul>
+<script type="text/javascript">
+    var arr = new Array();
+    var fragment = document.createDocumentFragment();
+    var ul = document.getElementsByTagName('ul')[0];
+    // for(let i=0;i<100000;i++)
+    // {
+    //     let li=document.createElement('li');
+    //     li.innerHTML='li'+i;
+    //     fragment.appendChild(li);
+    // }
+    // ul.appendChild(fragment);
+
+    for (let i = 0; i < 100000; i++) {
+        let li = document.createElement('li');
+        li.innerHTML = 'li' + i;
+        ul.appendChild(li);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象属性特征</title>
+</head>
+<body>
+<script type="text/javascript">
+    'use strict';
+    // var person={
+    //     name:'yangmin'
+    // };
+    // console.log(person.name);
+    // Object.defineProperty(person,'name',{
+    //     value:'hehuan',
+    //     // writable:false,
+    //     // enumerable:false
+    // });
+    // console.log(person.name);
+    // Object.defineProperty(person,'name',{
+    //     writable:false
+    // });
+    // person.name='cc';//不会报错，但是name依旧是hehuan
+    // console.log(person.name);
+    // var person={};
+    // Object.defineProperty(person,'name',{
+    //     configurable:false,
+    //     value:'yangmin',
+    //     writable:true
+    // });
+    // console.log(person.name);
+    // person.name='hehuan';
+    // // person.name='hehuan';
+    // // console.log(person.name);
+    // // Object.defineProperty(person,'name',{
+    // //     configurable:true,
+    // //     value:'hehuan'
+    // // });
+    // console.log(person.name);
+    // Object.defineProperty(person,'age',{
+    //     value:19
+    // });
+    // console.log(person.age);
+    // // person.age=20;
+    // console.log(person.age);
+    // console.log(Object.getOwnPropertyDescriptors(person));
+    // var person={
+    //     _name:'yangmin',
+    //     _age:20
+    // };
+    // Object.defineProperty(person,'name',{
+    //     get:function () {
+    //         return this._name;
+    //     },
+    //     set:function (value) {
+    //         this._name=value;
+    //         this._age+=1
+    //     }
+    // });
+    // console.log(person.name);
+    // person.name='hehuan';
+    // console.log(person.name);
+    // console.log(person._age);
+    // var person={
+    //     name:'yangmin',
+    //     _birth:'19960626',
+    //     age:22
+    // };
+    // Object.defineProperty(person,'birth',{
+    //     configurable:true,
+    //     enumerable:true,
+    //     get:function () {
+    //         return this._birth;
+    //     },
+    //     set:function (value) {
+    //         this._birth=value;
+    //         this.age=new Date().getFullYear()-parseInt(this._birth.slice(0,4));
+    //     }
+    // });
+    // console.log(person);
+    // person.birth='20000626';
+    // console.log(person);
+    // var person={};
+    // Object.defineProperties(person,{
+    //     name:{
+    //         value:'yangmin',
+    //         writable:true
+    //     },
+    //     age:{
+    //         value:20,
+    //         enumerable:true
+    //     }
+    // });
+    // console.log(person);
+    function Father(name,age) {
+        this.name=name;
+        this.age=age;
+    }
+    Father.funcName='father';
+    Father.prototype.getName=function () {
+      return this.name;
+    };
+    function Son(name,age,job) {
+        Father.apply(this,[name,age]);
+        this.job=job;
+    }
+    Son.prototype=Object.create(Father.prototype,{
+        constructor:{
+            value:Son,
+            enumerable:false,
+            configurable:true,
+            writable:true
+        }
+    });
+    Son.prototype.getJob=function () {
+      return this.job;
+    };
+    Son.__proto__=Father;//这样就可以访问父类的静态属性（函数中的属性）
+    var son1=new Son('cc',19,'tste');
+    console.log(son1);
+    console.log(Son.funcName);
+</script>
+</body>
+</html>

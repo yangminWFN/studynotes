@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数</title>
+</head>
+<script>
+    window.onload=function () {
+        var obj={
+            birth:1990,
+            getAge:function () {
+                var b=this.birth;
+                var fn=()=>new Date().getFullYear()-this.birth;
+                return fn();
+            }
+        };
+        console.log(obj.getAge());
+    }
+    for(var x in Function.prototype)
+    {
+        console.log(x);
+    }
+</script>
+<body>
+<p>箭头函数</p>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>话题记录可视化展示</title>
+    <link href="bootstrap/Content/bootstrap.css" rel="stylesheet">
+    <script src="echarts.js"></script>
+    <style type="text/css">
+        .footer{
+            height: 100px;
+            background-color:gray;
+        }
+    </style>
+</head>
+<body class="container">
+<div class="row header">
+    <h2 class="h2 text-center text-info">数据可视化展示</h2>
+</div>
+<div class="row content">
+    <div class="panel panel-primary" style="height:500px;">
+        <div id="data1" style="display:inline-block;width:33%;height:400px"></div>
+        <div id="data2" style="display:inline-block;width:33%;height:400px"></div>
+        <div id="data3" style="display:inline-block;width:33%;height:400px;background-color: #ffa3e8;"></div>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart1 = echarts.init(document.getElementById('data1'));
+            var myChart2 = echarts.init(document.getElementById('data2'));
+            var myChart3 = echarts.init(document.getElementById('data3'));
+
+            option1 = {
+                series : [
+                    {
+                        name: '访问来源',
+                        type: 'pie',
+                        radius: '55%',
+                        data:[
+                            {value:235, name:'视频广告'},
+                            {value:274, name:'联盟广告'},
+                            {value:310, name:'邮件营销'},
+                            {value:335, name:'直接访问'},
+                            {value:400, name:'搜索引擎'}
+                        ]
+                    }
+                ]
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart1.setOption(option1);
+            myChart2.setOption(option1);
+            myChart3.setOption(option1);
+
+        </script>
+    </div>
+
+</div>
+<div class="row footer"></div>
+
+<script src="jquery-3.1.1.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="bootstrap/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

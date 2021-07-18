@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    window.onload = function () {
+        // function sum(arr) {
+        //     return arr.reduce((x,y)=>x+y);
+        // }
+        // console.log(sum([1,2,3,4,5]));
+        function lazy_sum(arr) {
+            let sum = function () {
+                return arr.reduce((x, y) => x + y);
+            };
+            return sum;
+        }
+
+        let f1 = lazy_sum([1, 2, 3]);
+        let f2 = lazy_sum([2, 3, 4]);
+        console.log(f1 === f2);
+        console.log(f1());
+        console.log(f2());
+        //当lazy_sum返回函数sum时，相关参数和变量都保存在返回的函数中
+
+        // function closure() {
+        //     let arr=[];
+        //     for(var i=1;i<=3;i++)
+        //     {
+        //         arr.push(function () {
+        //             return i*i;
+        //         });
+        //     }
+        //     return arr;
+        // }
+        function closure() {
+            let arr = [];
+            for (var i = 1; i <= 3; i++) {
+                arr.push((function (n) {
+                    return function () {
+                        return n * n;
+                    };
+                })(i));
+            }
+            return arr;
+        }
+
+        //如果此处的var用let，则在每次循环中i都会是一个新的变量，那么返回的函数中的引用外部函数的局部变量i
+        // 就不是同一个变量，所以当调用返回的函数时，函数执行去使用的变量i就是传入的当时的i，所以不会是之后变了的i。
+        let [c1, c2, c3] = closure();
+
+        console.log(c1());
+        console.log(c2());
+        console.log(c3());
+        // a||b的意思是如果a是真，那么表达式就不用去判断b的值，直接返回a。如果a是假就返回b的值。
+        // a&&b的意思是如果a，b都为真，那么返回b的值，如果都为假就返回a的值。如果一个是真，一个是假就返回假的值。
+        console.log(null || undefined);
+        console.log(1 || '');
+        console.log(null && 2);
+        console.log(2 && null);
+        console.log(1 && 3);
+        console.log('' && {});
+
+
+    };
+</script>
+<body>
+<p>闭包</p>
+</body>
+</html>

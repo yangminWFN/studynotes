@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>原型链实现继承问题：当父类中存在引用类型属性时，无论引用类型属性是在构造函数中还是原型中，
+</h1>
+<h1>
+    当子类的原型等于父类实例后，这个引用类型都会成为原型对象的属性,
+    同以前，当原型对象里出现引用类型的值时，会导致所有实例引用的是同一个属性。
+</h1>
+<script type="text/javascript">
+    function SuperClass() {
+        this.colors=['red','blue'];
+    }
+    SuperClass.prototype.getColors=function () {
+        return this.colors;
+    }
+    function SubClass() {
+    }
+    SubClass.prototype=new SuperClass();
+    var instance1=new SubClass();
+    var instance2=new SubClass();
+    instance1.colors.push('black');
+    console.log(instance1.colors);
+    console.log(instance2.colors);
+    console.log(instance1);
+</script>
+</body>
+</html>

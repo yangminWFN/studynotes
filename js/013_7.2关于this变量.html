@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>关于this变量</p>
+<script type="text/javascript">
+    var name = 'the window';
+
+    var obj = {
+        name: 'the object',
+        getName: function () {
+            return function () {
+                return this.name;
+            };
+        }
+    };
+    var a = obj.getName()();
+    console.log(a);
+    //函数被调用时会自动取得两个变量，一个是this，一个是arguments。内部函数在搜索这两个变量的时候，只会搜索到内部函数的活动变量就停止了
+    //不会去外部函数的变量中去找！！！！！这和寻找其他变量是不一样的
+    //所以，内部函数的this变量，永远不会去找外部函数的this变量。
+    var obj2={
+        name:'the object2',
+        getName2:function () {
+            var _this=this;
+            return function () {
+              return _this.name;
+            };
+        }
+    };
+    console.log(obj2.getName2()());
+</script>
+</body>
+</html>

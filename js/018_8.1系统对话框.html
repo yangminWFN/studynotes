@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>系统对话框</p>
+<script type="text/javascript">
+    if(confirm('are you sure?'))
+    {
+        alert('yes');
+    }
+    else
+    {
+        alert('no');
+    }
+    var message=prompt('please input your name','')
+    if(message!=null&&message!='')
+    {
+        alert(message);
+    }
+    else
+    {
+        alert('null');
+    }
+    console.log(Boolean(null));
+    console.log(Boolean(''));
+</script>
+</body>
+</html>

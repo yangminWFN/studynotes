@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FlyBird</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .mainInterface {
+            width: 500px;
+            height: 600px;
+            background-color: coral;
+            position: relative;
+            margin-left: 400px;
+            z-index: -1;
+        }
+
+        .bird {
+            width: 30px;
+            height: 30px;
+            background-color: #ff008d;
+            position: absolute;
+            left: 50px;
+            top: 285px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="grassTop"
+     style="position:absolute;display: inline-block;width:800px;height:50px;background-image: url('grass.jpg');left:400px;"></div>
+<div class="mainInterface" id="main"></div>
+<div id="grassBottom"
+     style="position: relative;display: inline-block;width:800px;height:50px;background-image: url('grass.jpg');left:400px;top:-50px;"></div>
+
+<script type="text/javascript">
+
+    function Bird() {
+        this.dropTimer = null;
+        this.upTimer = null;
+        this.ele = document.createElement('div');
+        this.speed = 0;
+    }
+
+    Bird.prototype.showBird = function () {
+        this.ele.style.width = '30px';
+        this.ele.style.height = '30px';
+        this.ele.style.backgroundColor = '#ff008d';
+        this.ele.style.position = 'absolute';
+        this.ele.style.left = '50px';
+        this.ele.style.top = '285px';
+    };
+    Bird.prototype.birdDrop = function () {
+        var that = this;
+        bird.dropTimer = setInterval(fly, 50);
+
+        function fly() {
+            that.ele.style.top = that.ele.offsetTop + that.speed++ + 'px';
+            if (that.ele.offsetTop <= 52) {
+                that.speed = 0;
+                clearInterval(that.dropTimer);
+            }
+            if (that.ele.offsetTop >= 515) {
+                that.speed = 0;
+                clearInterval(that.dropTimer);
+            }
+            if (that.speed >= 12) {
+                that.speed = 12;
+            }
+        }
+    };
+
+    function Block() {
+        this.div = document.createElement('div');
+        this.leftMoveTimer = null;
+        this.type='top';
+    }
+
+    Block.prototype.showBlock = function () {
+        this.div.style.position = 'absolute';
+        this.div.style.width = '80px';
+        this.div.style.backgroundColor = 'yellow';
+        this.div.style.zIndex = '1';
+        this.div.style.top = '50px';
+        this.div.style.left = '600px';
+        this.div.style.height = '120px';
+
+    };
+
+    Block.prototype.leftMove = function () {
+        this.leftMoveTimer = setInterval(ToLeft, 50);
+        var that = this;
+
+        function ToLeft() {
+            let ele = that.div;
+            ele.style.left = ele.offsetLeft - 4 + 'px';
+            if (ele.offsetLeft <= 300) {
+                ele.style.left = '1100px';
+                ele.style.height = 120 + 120 * Math.random(0, 1) + 'px';
+                if(that.type=='down')
+                {   ele.style.height = 100 + 100 * Math.random(0, 1) + 'px';
+                    ele.style.top=550-ele.offsetHeight+'px';
+                }
+
+            }
+        }
+    };
+
+    var bird = new Bird();
+    var birdEle = bird.ele;
+    bird.showBird();
+    var mainInterface = document.getElementById('main');
+    mainInterface.append(birdEle);
+    bird.birdDrop();
+    function bodyKeyup(event) {
+        if (event.keyCode == 38) {
+            bird.speed = -8;
+        }
+    }
+    document.body.addEventListener('keyup',bodyKeyup);
+    var grassBottom = document.getElementById('grassBottom');
+    var grassTop = document.getElementById('grassTop');
+    var grassTimer = setInterval(grassMove, 50);
+
+    function grassMove() {
+        grassBottom.style.left = grassBottom.offsetLeft - 4 + 'px';
+        grassTop.style.left = grassTop.offsetLeft - 4 + 'px';
+        if (grassBottom.offsetLeft <= 100) {
+            grassBottom.style.left = '400px';
+        }
+        if (grassTop.offsetLeft <= 100) {
+            grassTop.style.left = '400px';
+        }
+    }
+
+    var blocks = new Array();
+    for (let i = 0; i < 5; i++) {
+        let upblock = new Block();
+        let downblock = new Block();
+        downblock.type = 'down';
+        upblock.showBlock();
+        downblock.showBlock();
+
+        document.body.appendChild(upblock.div);
+        document.body.appendChild(downblock.div);
+
+        upblock.div.style.left = upblock.div.offsetLeft + i * 160 + 'px';
+        upblock.div.style.height = upblock.div.offsetHeight + 120 * Math.random() + 'px';
+
+        downblock.div.style.left = downblock.div.offsetLeft + i * 160 + 'px';
+        downblock.div.style.height = downblock.div.offsetHeight + 100 * Math.random() + 'px';
+        downblock.div.style.top =550-downblock.div.offsetHeight+'px';
+        upblock.leftMove();
+        downblock.leftMove();
+
+        blocks.push(upblock);
+        blocks.push(downblock);
+    }
+    function rectCheck(obj1,obj2) {
+        var obj1Left=obj1.offsetLeft+obj1.offsetParent.offsetLeft;
+        var obj1Width=obj1Left+obj1.offsetWidth;
+        var obj1Top=obj1.offsetTop+obj1.offsetParent.offsetTop;
+        var obj1Height=obj1Top+obj1.offsetHeight;
+
+        var obj2Left=obj2.offsetLeft;
+        var obj2Width=obj2Left+obj2.offsetWidth;
+        var obj2Top=obj2.offsetTop;
+        var obj2Height=obj2Top+obj2.offsetHeight;
+
+
+        if(!(obj1Left>obj2Width||obj1Width<obj2Left||obj1Top>obj2Height||obj1Height<obj2Top))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    var checkTimer=setInterval(function () {
+        for(let x of blocks)
+        {
+            if(rectCheck(birdEle,x.div))
+            {
+                for(let y of blocks)
+                {
+                    clearInterval(y.leftMoveTimer);
+                }
+                clearInterval(grassTimer);
+                clearInterval(checkTimer);
+                document.body.removeEventListener('keyup',bodyKeyup);
+            }
+        }
+    },50);
+</script>
+</body>
+</html>

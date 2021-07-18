@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>间歇调用和超时调用</p>
+<div id="box1" style="width: 100px;height: 100px;background-color:orangered;display: inline-block;position: relative;left:0px"></div>
+<script type="text/javascript">
+    var innerWidth=window.innerWidth-100;
+    var id=setInterval(function () {
+        var div=document.getElementById('box1');
+        var left=parseInt(div.style.left.replace('px',''));
+        left=left+1;
+        div.style.left=left+'px';
+        if(left==innerWidth)
+        {
+            clearInterval(id);
+        }
+    },20);
+</script>
+</body>
+</html>

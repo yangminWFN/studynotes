@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>用原型创建对象</h1>
+<script type="text/javascript">
+    function Person() {
+    }
+
+    Person.prototype.name = 'yangmin';
+    Person.prototype.age = 19;
+    Person.prototype.getAge = function () {
+        return this.age;
+    }
+    var p1 = new Person();
+    var p2 = new Person();
+    console.log(p1);
+    console.log(p2);
+    console.log(p1.getAge == p2.getAge);
+    console.log(Person.prototype);
+    console.log(Person.prototype.constructor);
+    console.log(p1.__proto__);
+    console.log(Person.prototype.isPrototypeOf(p1));//判断一个对象的原型
+    console.log(Person.prototype.isPrototypeOf(p1));
+    console.log(Object.getPrototypeOf(p1) == Person.prototype);
+    console.log(Object.getPrototypeOf(p1).name);//yangmin
+    p1.name = 'hehuan';
+    console.log(Object.getPrototypeOf(p1).name);//yangmin
+    console.log(p1.name);//hehuan
+    delete p1.name;
+    console.log(p1.name);//yangmin
+    //原因是当对象中存在同名属性时会首先采用对象中的属性，如果没在对象中找到该属性，就会去这个对象的原型中去找，若找到则返回。
+
+    //返回的是对象所有可以访问到的可枚举属性(无论是实例属性还是原型中的属性)
+    for (var x in p1) {
+        console.log(x);
+    }
+
+    //返回对象中的实例属性
+    p1.name = 'yangmin';
+    var arr = Object.keys(p1);
+    for (let pro of arr) {
+        console.log(pro);
+    }
+    
+    function Person1() {
+        
+    }
+    Person1.prototype={
+        name:'yangmin',
+        age:19,
+        getAge:function () {
+            return this.age;
+        }
+    }
+    Object.defineProperty(Person1.prototype,'constructor',{
+        enumerable:false,
+        value:Person1
+    });
+    let person11=new Person1();
+    console.log(Person1.prototype.constructor);
+    console.log(person11 instanceof Person1);
+
+
+</script>
+</body>
+</html>

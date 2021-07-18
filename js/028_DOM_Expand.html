@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM扩展</title>
+</head>
+<body>
+<div id="div1" class="box1">我是div1</div>
+<div id="div2" class="box1">我是div2</div>
+<div id="div3" class="box3">我是div3</div>
+<ul>
+    <li>li1</li>
+    <li>li2</li>
+    <li>li3</li>
+</ul>
+<script type="text/javascript">
+    var body = document.querySelector('body');
+    console.log(body.nodeName)
+    var div1 = document.querySelector('#div1');
+    console.log(div1.firstChild.nodeValue);
+    var divs = document.querySelectorAll('.box1');
+    console.log(divs);
+    var ul = body.querySelector('ul');
+    var lis = ul.querySelectorAll('li');
+    console.log(ul);
+    console.log(lis);
+    var childNodeCount = ul.childNodes.length;
+    var childElementCount = ul.childElementCount;
+    console.log('childNodes返回包含文本节点的总节点个数：' + childNodeCount);
+    console.log('childElementCount返回不包含文本节点的总节点个数：' + childElementCount);
+    var li1 = ul.firstElementChild;
+    console.log(li1);
+    var li2 = li1.nextElementSibling;
+    console.log(li2);
+    //遍历子节点
+    var child = ul.firstElementChild;
+    while (child != ul.lastElementChild) {
+        console.log(child);
+        child=child.nextElementSibling;
+    }
+    console.log(child);
+</script>
+</body>
+</html>

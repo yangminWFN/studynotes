@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>各种节点</p>
+<p id="existedP">已经存在的节点p</p>
+<script type="text/javascript">
+    console.log(document.documentElement.nodeName);
+    console.log(document.getElementsByTagName('html')[0]);
+    console.log(document.documentElement==document.getElementsByTagName('html')[0]);
+    var htmlChildren=document.documentElement.childNodes;
+    for(let x of htmlChildren)
+    {
+        console.log(x.nodeName);
+    }
+    console.log(htmlChildren.length);
+    function convertToArray(nodes) {
+        let array=null;
+        try{
+            array=Array.prototype.slice.call(nodes,0);
+        }
+        catch(ex)
+        {
+            array=new Array();
+            for(let x in nodes)
+            {
+                array.push(x);
+            }
+        }
+        return array;
+    }
+    var array=convertToArray(htmlChildren);
+    console.log(array);
+    var body=document.body;
+    console.log(body.previousElementSibling);
+    console.log(body.nextElementSibling)
+    var pTag=document.getElementsByTagName('p')[0];
+    console.log(pTag.ownerDocument);
+    console.log(pTag.hasChildNodes());
+    console.log(pTag.childNodes[0].nodeType==3);
+    let anoPTag=pTag.cloneNode(true);
+    pTag.appendChild(anoPTag);
+    var existedP=document.getElementById('existedP');
+    pTag.appendChild(existedP);
+    //用节点的appendChild方法如果传入一个文档中已经有的节点，那么这个节点将会从原来的位置移到新的位置。
+    // 如果想将一个节点的其中一个子节点放到最后，就将该子节点用appendChild方法即可。
+    pTag.insertBefore(existedP,pTag.firstChild);
+    console.log(existedP==pTag.firstChild);
+
+
+</script>
+</body>
+</html>

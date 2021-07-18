@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>函数表达式</p>
+<script type="text/javascript">
+    // var sayHi;
+    // sayHi()
+    // sayHi=function () {
+    //     alert('sayHi');
+    // }
+    // var condition=true
+    // if(condition)
+    // {
+    //     function sayHi() {
+    //         alert('hi')
+    //     }
+    // }
+    // else
+    // {
+    //     function sayHi() {
+    //         alert('heihei')
+    //     }
+    // }
+    // sayHi()
+    // var sayHi;
+    // var condition=true;
+    // if(condition)
+    // {
+    //     sayHi=function () {
+    //         alert('hi');
+    //     };
+    // }
+    // else
+    // {
+    //     sayHi=function () {
+    //         alert('heihei');
+    //     };
+    // }
+    // sayHi();
+    'use strict';
+    // function fac(num)
+    // {
+    //     if(num<=1)
+    //     {
+    //         return 1;
+    //     }
+    //     else
+    //     {
+    //         return num*arguments.callee(num-1);
+    //     }
+    // }//严格模式下不能使用arguments.callee或者arguments.caller
+    // var fac2=fac;
+    // fac=null;
+    // fac2(5);
+
+    //    严格模式下可以用命名函数表达式类解决
+    var fac = function f(num) {
+        if (num <= 1) {
+            return 1;
+        }
+        else {
+            return num * f(num - 1);
+        }
+    };
+    var fac2 = fac;
+    fac = null;
+    console.log(fac2(5));
+
+    function closure(i) {
+        return function k() {
+            alert(i);
+        }
+    }
+
+    var scope = closure.scope;
+    console.log(scope);//undefined
+    //  闭包是有权访问另一个函数作用域中变量的函数，上面的k函数以及它的外部环境构成一个闭包
+    //  当创建closure函数的时候，其中函数会包含一个scope属性，scope属性是指向这个函数作用域链的，每一个作用域链的节点
+    //  都是一个对象，其中只包含一个全局变量对象。
+    //  当执行closure函数时，会创建一个执行环境，首先复制原来scope属性中的作用域链，然后创建一个活动对象，并将其推入作用域链的
+    //  顶端，所以执行环境中就包含了全局变量对象和本地活动对象，所以作用域链是一个指向变量对象的指针列表，它本身不包含变量对象。
+    //  当创建k函数的时候，此时k函数内部的scope属性就被初始化为了closure函数的执行环境，就包含了一个closure函数的活动变量和全局
+    //  变量对象。当执行k函数的时候，会创建k函数的执行环境，其中包含了k函数的活动对象，位于作用域链的最顶端；其次是closure函数的
+    //  活动对象，最后是全局变量对象。由于k函数中保持着对closure活动对象的引用，所以这个活动对象一直会等到k函数执行完才会被释放。
+    function createFunctions()
+    {
+        var result=[];
+        for(var i=0;i<10;i++)
+        {
+            result[i]=(function (num) {
+                return function () {
+                 return num*num;
+                };
+            })(i);
+        }
+        return result;
+    }
+    var result=createFunctions();
+    console.log(result[5]());
+</script>
+</body>
+</html>

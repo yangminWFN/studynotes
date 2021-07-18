@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var a = new Array(3);
+            a[0] = 1;
+            a[1] = 'yangmin';
+            a[2] = true;
+            console.log(a.length);
+            a[3] = 2;
+            console.log(a.length);
+            console.log(Array.isArray(a));
+            console.log(a instanceof Array);
+            console.log(a.valueOf());//直接返回在这个数组
+            console.log(a.toString());//返回一个以逗号分隔的字符串
+            console.log(a.valueOf() === a);//true
+
+            var person1={
+                toLocaleString:function () {
+                    return "localeString1";
+                },
+                toString:function () {
+                    return "string1";
+                }
+            };
+            var person2={
+                toLocaleString:function () {
+                    return "localeString2";
+                },
+                toString:function () {
+                    return "string2";
+                }
+            };
+            var people=[person1,person2];
+            console.log(people);
+            console.log(people.toString());
+            console.log(people.toLocaleString());
+            console.log(people.join('||'));//join方法可以指定数组每一项调用toString()方法得到的字符串之间的分隔符
+            //如果数组中有null或者undefined在使用toString(),toLocaleString(),join()方法时会以空字符串显示。
+            var b=[undefined,1,2,null,3];
+            console.log(b);
+            console.log(b.valueOf());
+            console.log(b.toString());//,1,2,,3
+            console.log(b.join('||'));//||1||2||||3
+
+            //JS中数组可以类似栈来使用，用push()和pop()方法实现进栈和出栈
+            var colors=[];
+            var count=colors.push('red','blue','yellow');//push()方法返回当前数组长度
+            console.log(count);//3
+            console.log(colors);//只有两个元素
+            console.log(colors[2]);//但是可以取到第三个元素
+
+            var item=colors.pop();
+            console.log(item);//yellow
+            console.log(colors);
+
+            //JS数组也可以类似队列来使用，用shift()从数组的前端出队，用push()从数组后端进队
+            var queue=new Array();
+            queue.push('a','b');
+            console.log(queue.length);
+
+            var item1=queue.shift();//unshift()方法也返回当前数组长度
+            console.log(item1);
+            console.log(queue.length);
+
+            //数组的重排序方法
+            var values=[1,2,3,4,5];
+            var reverse=values.reverse();
+            console.log(reverse);//54321
+            console.log(values);//54321
+            console.log(values===reverse);
+            //排序方法返回的就是这个对象，也就是说排序会改变当前对象。
+            values.sort((x,y)=>y-x);
+            console.log(values);
+
+            //数组的concat,slice方法,不会改变原数组
+            var value1=values.concat(5,[6,7,8]);
+            var value2=values.slice(-2);
+            console.log(value1);
+            console.log(value2);
+
+
+            //,splice方法,会改变原始数组
+            var value3=values.splice(0,1,'yangmin');//从下标0开始删除1项，并插入‘yangmin‘
+            console.log(value3);//value3为删除的项组成的数组
+            console.log(values);
+
+            //还有遍历数组的函数：every,some,forEach(),filter(),map()
+            //归并方法：reduce,reduceRight
+        };
+    </script>
+</head>
+<body>
+<h1>Array数组类型</h1>
+</body>
+</html>

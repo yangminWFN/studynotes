@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var book={
+        title:'professional javascript',
+        authors:['nick','yangmin'],
+        edition:3,
+        year:2011
+    };
+    var JsonText=JSON.stringify(book);
+    console.log(JsonText);
+    console.log(typeof JsonText);
+    var newBook=JSON.parse(JsonText);
+    console.log(newBook);
+    var filterJSONText=JSON.stringify(book,["title","authors"]);
+    console.log(filterJSONText);
+    var filterParse=JSON.parse(filterJSONText);
+    console.log(filterParse);
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var pattern1 = /at/g;
+            var pattern2 = /[bc]at/i;
+            var pattern3 = /.at/gi;
+            var pattern4 = /\[bc\]at/i;
+            var pattern5 = /\.at/ig;
+            var pattern6 = new RegExp("\\[bc\\]at", 'i');//模式参数要用双重转义，就是把用来转义的\变为\\
+
+            function useRegExp() {
+                var re=null,i;
+                for(i=0;i<10;i++)
+                {
+                    re=/cat/g;
+                    var k=re.test('catastcatophe');
+                    console.log(re.lastIndex);
+                    console.log(k);
+                }
+                for(i=0;i<10;i++)
+                {
+                    re=new RegExp('cat','g');
+                    re.test('catastrophe');
+                    console.log(re.lastIndex);
+
+                }
+            }
+            useRegExp();
+
+            //RegExp的实例属性
+            console.log(pattern2.global);
+            console.log(pattern2.multiline);
+            console.log(pattern2.ignoreCase);
+            console.log(pattern2.lastIndex);
+            console.log(pattern4.source);
+
+            //RegExp的实例方法：exec(),test()
+            //exec():返回!!!(第一个)匹配项信息的数组(如果这个字符串中有多项和模式匹配只选择第一项,除非是模式中的有多组)，没有匹配项的时候返回null；
+            var patternExec=new RegExp('\\dyan','g');//只有在全局模式下时，每次调用exec方法，lastIndex才会改变。
+            var matches1=patternExec.exec('1yangmin2yanhaha');
+            //匹配到符合的字符串解释：
+            //首先，在整个字符串的开头开始搜索是否有符合该正则表达式模式的字符串，匹配到了1yan,由于模式中没有其他组要进行匹配，所以
+            //直接返回（只有模式中有多组时才会返回的是数组），接着该正则表达式对象的属性lastIndex变为4（只在g全局模式下改变），下次
+            //进行匹配时，从下标4开始；
+            for(let x of matches1)
+            {
+
+                console.log(x);
+            }
+            console.log(patternExec.lastIndex);//4
+            var matches2=patternExec.exec('12345yan');
+            for(let x of matches2)
+            {
+
+                console.log(x);
+            }
+            console.log(patternExec.lastIndex);//12
+        };
+    </script>
+</head>
+<body>
+<h1>RegExp类型：正则表达式</h1>
+</body>
+</html>

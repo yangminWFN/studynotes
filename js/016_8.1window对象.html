@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>窗口位置</p>
+<script type="text/javascript">
+    var leftPos=(typeof window.screenLeft=="number")?window.screenLeft:window.screenX;
+    var topPos=(typeof window.screenTop=='number')?window.screenTop:window.screenY;
+    console.log(leftPos+''+topPos);
+    // window.open('http://www.baidu.com','_self');
+    console.log(top==window);
+    console.log(parent==window);
+    console.log(window==self);
+    //窗体大小
+    var windowWidth=window.outerWidth;
+    var windowHeight=window.outerHeight;
+    console.log(windowWidth);
+    console.log(windowHeight);
+    var borderWidth=windowWidth-window.innerWidth;
+    var borderHeight=windowHeight-window.innerHeight;
+    console.log(borderWidth);
+    console.log(borderHeight);
+    var pageHeight=window.innerHeight;
+    var pageWidth=window.innerWidth;
+    if(typeof pageHeight!='number')
+    {
+        if(document.compatMode=='CSS1Compat')
+        {
+            pageHeight=document.documentElement.clientHeight;
+            pageWidth=document.documentElement.clientWidth;
+        }
+        else
+        {
+            pageWidth=document.body.clientWidth;
+            pageHeight=document.body.clientHeight;
+        }
+    }
+    console.log(pageHeight);
+    console.log(pageWidth);
+    console.log(document.documentElement);
+    var newW=window.open('http://www.baidu.com/','','width=1300,height=600,resize=yes');
+    setTimeout(function () {
+        newW.moveTo(500,500);
+    },2000);
+
+</script>
+</body>
+</html>

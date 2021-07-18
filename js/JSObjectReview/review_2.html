@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建对象</title>
+</head>
+<body>
+<p style="color:red"></p>
+<script type="text/javascript">
+    //工厂模式创建对象
+    // function CreatePerson(name,age,job){
+    //     var obj=new Object();
+    //     obj.name=name;
+    //     obj.age=age;
+    //     obj.job=job;
+    //     return obj;
+    // }
+    // var person1=CreatePerson('yangmin',11,'text');
+    // var person2=CreatePerson('cc',12,'text2');
+    // console.log(person1);
+    // console.log(person2);//没有解决哪个对象属于哪个类型的问题
+
+    //构造函数模式
+    function Person(name,age,job) {
+        this.name=name;
+        this.age=age;
+        this.job=job;
+        this.sayName=function () {
+          return this.name;
+        };
+    }
+    var person1=new Person('yangm',19,'text');
+    console.log(person1);
+    console.log(Array.prototype);
+    console.log(Object.getOwnPropertyNames(Function.prototype));
+
+</script>
+</body>
+</html>

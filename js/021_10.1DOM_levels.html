@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点层次</title>
+</head>
+<body>
+<p id="p1">哈哈</p>
+<script type="text/javascript">
+    var p1=document.getElementById('p1');
+    console.log(p1.nodeType==Node.ELEMENT_NODE);
+    console.log(p1.nodeType==1);
+    if(p1.nodeType==1)
+    {
+        let name=p1.nodeName;
+        console.log(name);
+        let value=p1.nodeValue;
+        console.log(value);
+    }
+    var htmlNode=document.getElementsByTagName('head')[0];
+    if(htmlNode.nodeType==1)
+    {
+        var firstChild=htmlNode.childNodes[0];
+        var secondChild=htmlNode.childNodes[1];
+        var count=htmlNode.childNodes.length;
+        console.log('第一个子节点是'+firstChild.nodeName);
+        console.log('第二个子节点是'+secondChild.nodeName);
+        for(let i=0;i<count;i++)
+        {
+            console.log(htmlNode.childNodes[i]);
+        }
+        console.log('子节点个数为：'+count);
+    }
+    else
+    {
+        console.log('不是元素节点');
+    }
+</script>
+</body>
+</html>

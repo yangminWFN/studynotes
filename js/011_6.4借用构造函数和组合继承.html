@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>借用构造函数和组合继承</h1>
+<script type="text/javascript">
+    // function SuperClass() {
+    //     this.colors=['red','yellow'];
+    // }
+    // function SubClass() {
+    //     SuperClass.call(this);
+    // }
+    // var instance1=new SubClass();
+    // var instance2=new SubClass();
+    // instance1.colors.push('blue');
+    // console.log(instance1);//3
+    // console.log(instance2);//2
+    // console.log(instance1 instanceof SuperClass);//false
+    // console.log(instance1 instanceof SubClass);//true
+    //借用构造函数的问题依然在于无法实现函数的复用，即每个实例都会有自己的函数对象引用。
+
+    //组合继承方式
+    //用原型链实现对原型属性和方法的继承，用借用构造函数实现对实例属性的继承
+    function SuperClass() {
+        this.name='父类';
+        this.colors=['red','blue'];
+    }
+    SuperClass.prototype.getSuperName=function () {
+      return this.name;
+    };
+    function SubClass() {
+        this.subName='子类';
+        SuperClass.call(this);
+    }
+    SubClass.prototype=new SuperClass();
+    SubClass.prototype.constructor=SubClass;
+    //实例属性中的colors覆盖了SubClass原型中的属性colors，所以当每个实例对象访问colors时会访问的不同的colors
+    var instance1=new SubClass();
+    console.log(instance1);
+</script>
+</body>
+</html>

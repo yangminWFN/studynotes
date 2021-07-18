@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>原型链：让子类的原型等于父类的对象实例，这样在子类的原型中就有了父类所有的方法和属性</h1>
+<h2>子类实例指向子类原型，子类原型指向父类原型，最终指向object形成了一条原型链</h2>
+<script type="text/javascript">
+    function SuperClass() {
+        this.superName='父类';
+    }
+    SuperClass.prototype.getSuperName=function () {
+        return this.superName;
+    };
+    function SubClass() {
+        this.subName='子类';
+    }
+    SubClass.prototype=new SuperClass();
+    SubClass.prototype.getSubName=function () {
+      return this.subName;
+    };
+    var instance=new SubClass();
+    console.log(instance.getSuperName());
+    console.log(instance);
+    //instance-->superclass-->object
+    console.log(instance.constructor);
+</script>
+</body>
+</html>

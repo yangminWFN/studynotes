@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<h1>创建对象</h1>
+<script type="text/javascript">
+    'use strict';
+    //工厂模式的构造函数
+
+    // function Person(){
+    //     var object=new Object();
+    //     object.name='yangmin';
+    //     object.age=19;
+    //     return object;
+    // }
+
+    //用this的构造函数
+    function Person() {
+        this.name='yangmin';
+        this.age=19;
+        this.getAge=function () {
+            return this.age;
+        }
+    }
+    var p1=new Person();
+    var p2=new Person();
+    console.log(p1.name);
+    console.log(p1.age);
+    console.log(p1.constructor);//Person
+    console.log(p1);
+
+    console.log(p2.name);
+    console.log(p2.age);
+    console.log(p2.constructor);//Person
+    console.log(p2);
+
+    console.log(p1.getAge==p2.getAge);//false
+    //由于用构造函数创建的对象，其中对象引用的方法都不是同一个函数的引用，因此每创建一个对象，都会产生一个新的方法的引用
+
+    //改进办法：将构造函数中的方法提到函数的外部，弊端在于会存在多个全局函数，影响封装性。
+    //new Person的四个阶段：
+    // 1.创建一个object对象
+    // 2.将构造函数的作用域赋给这个对象（让this指向这个对象）
+    // 3.为这个对象添加属性或方法
+    // 4.返回这个对象
+
+
+
+</script>
+</body>
+</html>

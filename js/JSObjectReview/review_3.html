@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基础知识</title>
+</head>
+<body>
+<script type="text/javascript">
+    'use strict';
+    // function DivLine() {
+    //     console.log('===================='.repeat(5));
+    // }
+    // DivLine();
+    // var div=document.getElementById('div');
+    // console.log(div);//由于div处于script标签的后面，所以会先加载script标签和里面内容再加载div标签，所以得到的是null
+    // message=10;
+    // console.log(message);
+    function duplicates(arr) {
+        function count(arr1,item){
+            var t=0;
+            arr1.forEach(function(item1,index1){
+                if(item1===item)
+                {
+                    t+=1;
+                }
+            });
+            return t;
+        }
+        function delItem(arr1,item)
+        {
+            while(true)
+            {
+                var index=arr1.indexOf(item);
+                if(index!=-1)
+                {
+                    arr1.splice(index,1);
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return arr1;
+        }
+        var newArr=[];
+        arr.forEach(function(item1,index1,arr1){
+            var t=count(arr,item1);
+            if(t>1)
+            {
+                newArr.push(item1);
+                delItem(arr,item1);
+            }
+        });
+        return newArr;
+    }
+    console.log(duplicates([1,2,3,4,5,2,2,3,4]));
+
+</script>
+<div id="div"></div>
+</body>
+</html>

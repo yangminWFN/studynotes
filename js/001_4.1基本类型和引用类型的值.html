@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>基本类型的值和引用类型的值</p>
+<script type="text/javascript">
+    //在函数参数中，不管是参数是值类型还是引用类型，当实参传递给形参时，都是采用的值传递。即实参复制一个值的副本给形参
+    //,引用类型的实参也是将地址复制给实参，但是它们存储在两个变量里，因此当形参指向其他地址时，实参并不发生改变。
+    function setName(obj)
+    {
+        obj.name="yangmin";
+        obj=new Object();
+        obj.name="何欢";
+    }
+
+    var person=new Object();
+            person.name="yxx";
+    setName(person);
+    console.log(person.name);
+    console.log(person instanceof Object);
+    var a=[];
+    console.log(a instanceof Array);
+</script>
+</body>
+</html>

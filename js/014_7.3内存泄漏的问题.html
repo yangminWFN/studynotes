@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="p1">内存泄漏的问题</p>
+<script type="text/javascript">
+    // function assignHandle() {
+    //     var element=document.getElementById('p1');
+    //     element.onclick=function () {
+    //       console.log(element.id);
+    //     };
+    // }
+    // assignHandle();
+    //  在这里事件处理程序的闭包中又循环引用了这个element，因此element的引用数至少是1，它所占的内存永远不会被回收
+    function assignHandle() {
+        var ele=document.getElementById('p1');
+        var id=ele.id;
+        ele.onclick=function () {
+          console.log(id);
+        };
+        ele=null;
+    }
+    //首先把ele.id的副本保存在一个变量里，消除循环引用
+    //闭包函数会引用包含函数的整个活动对象，即使在闭包中不直接引用ele，但是在包含函数的活动对象中也就一直保存着ele的引用
+    assignHandle();
+</script>
+</body>
+</html>

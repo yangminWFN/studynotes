@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    'use strict';
+    window.onload=function () {
+        //Map
+        var m=new Map([[1,'杨敏'],[2,'何欢'],[3,'陈飞飞']]);
+        let k=m.get(1);
+        var m1=new Map();
+        m1.set('yangmin',99);
+        m1.set('hehuan',88);
+        console.log(m1);
+        m1.forEach(function(value,key,m){
+            console.log('key='+key+',value='+value);
+        });
+        if(m1.has('yangmin'))
+        {
+            console.log("包含杨敏");
+        }
+        m1.delete('yangmin');
+        if(m1.has('yangmin'))
+        {
+            console.log("没有删除杨敏")
+        }
+        else
+        {
+            console.log("删除了杨敏");
+        }
+        //Set
+        let s=new Set();
+        s.add('1');
+        s.add('2');
+        s.add('1');
+        console.log(s);
+        s.forEach(function (key,samekey,s) {
+            console.log(key+samekey);
+        });
+    };
+</script>
+<body>
+    <p>Map和Set</p>
+</body>
+</html>

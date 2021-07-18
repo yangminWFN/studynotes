@@ -1,0 +1,64 @@
+GET http://baidu.com/Index
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-08-13T043331.200.html
+
+###
+
+GET http://baidu.com/Index
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-08-13T043308.200.html
+
+###
+
+GET http://baidu.com/Index
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-08-13T042923.200.html
+
+###
+
+GET http://baidu.com/Index
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-08-13T042728.200.html
+
+###
+
+POST http://baidu.com/Index
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-08-13T042724.302.html
+
+###
+
+POST http://baidu.com/
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-08-13T042656.200.html
+
+###
+
+GET http://baidu.com/
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-08-13T042653.200.html
+
+###
+
+GET http://baidu.com
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-08-13T042636.200.html
+
+###
+

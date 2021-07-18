@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Element类型</title>
+</head>
+<body>
+<div id="box" class="p2" style="width: 100px;height: 100px;background-color:red;" onclick="function f() {
+
+}">
+    <p>Element类型1</p>
+    <p class="p2">Element类型2</p>
+    <p>Element类型3</p>
+    <div>我是div</div>
+</div>
+<script type="text/javascript">
+    let box = document.getElementById('box');
+    console.log(box.tagName);
+    console.log(box.id);
+    console.log(box.className);
+    console.log(box.title);
+    console.log(box.getAttribute('class'));
+    console.log(box.setAttribute('id', 'box2'));
+    console.log(box.onclick);
+    console.log(box.style);
+    console.log(box.getAttribute('onclick'));
+    console.log(box.getAttribute('style'));
+
+    function outputAttrs(ele) {
+        for (let i = 0; i < ele.attributes.length; i++) {
+            if (ele.attributes[i].specified) {//判断该属性是不是在html元素中，不然在IE7及更早版本中会列出不在元素中的属性
+                console.log('attrName=' + ele.attributes[i].nodeName + ',attrValue=' + ele.attributes[i].nodeValue);
+            }
+        }
+    }
+
+    outputAttrs(box);
+    box.style.cssText = 'width: 200px;height: 100px;background-color:red;';
+    //创建一个元素
+    var div=document.createElement('div');
+    div.id='box3';
+    div.className='class4 class5';
+    div.innerHTML='哈哈';
+    box.appendChild(div);
+    // var div1=document.createElement("<div class=\"class6\" id=\"box4\">哈哈2</div>");
+    // box.appendChild(div1);只有在IE7及更早版本下可以这么创建
+    for(let i=0;i<box.childNodes.length;i++)
+    {
+        if(box.childNodes[i].nodeType==1)
+        {
+            console.log(box.childNodes[i].nodeName);
+        }
+    }
+    let items=box.getElementsByTagName('p');
+    for(let x of items)
+    {
+        console.log(x.nodeName);
+    }
+    let classes=box.getElementsByClassName('p2');
+    for(let x of classes)
+    {
+        console.log(x);
+    }
+
+</script>
+</body>
+</html>

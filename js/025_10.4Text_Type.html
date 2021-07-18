@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text类型</title>
+</head>
+<body>
+<div id="div1">我是div</div>
+<script type="text/javascript">
+var div1=document.getElementById('div1');
+console.log(div1.firstChild.nodeValue);
+div1.firstChild.nodeValue='我不是div';
+console.log(div1.firstChild.data);
+var text=div1.firstChild;
+text.appendData('haha');
+text.deleteData(0,2);
+console.log(text.splitText(5));//返回一个按照当前下标分割后的之后的文本形成的节点，而原先的文本节点的值为前面的值
+console.log(text);
+var textNode=document.createTextNode("<strong>Hello</strong>world");
+div1.appendChild(textNode);
+console.log(div1.firstChild.nodeValue);
+div1.normalize();//將父节点中的所有文本节点都变成一个文本节点
+console.log(div1.firstChild.nodeValue);
+</script>
+</body>
+</html>

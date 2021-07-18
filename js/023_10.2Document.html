@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document类型</title>
+</head>
+<body>
+<p name="p1">Document类型1</p>
+<p name="p2">Document类型2</p>
+<p name="p3">Document类型3</p>
+<script type="text/javascript">
+    Object.prototype.printVar = function () {
+        console.log(this);
+    };
+    var html = document.documentElement;
+    var body = document.body;
+    var docType = document.doctype;
+    var title = document.title;
+    html.printVar();
+    body.printVar();
+    docType.printVar();
+    title.printVar();
+    title = '新标题';
+    title.printVar();
+    var url = document.URL;
+    var domain = document.domain;
+    var referrer = document.referrer;
+    console.log(url);
+    console.log(domain);
+    console.log(referrer);
+    var PTags = document.getElementsByTagName('p');
+    console.log(PTags['p2']);
+    console.log(PTags.namedItem('p3'));
+    //  特殊集合
+    document.anchors;
+    document.links;
+    document.images;
+    document.forms;
+    var imp=document.implementation;
+    console.log(document.implementation);
+    console.log(imp.hasFeature('XML','1.0'));
+    console.log(imp.hasFeature('LS','3.0'));
+
+
+</script>
+</body>
+</html>

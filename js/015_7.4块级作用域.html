@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>块级作用域</p>
+<script type="text/javascript">
+    //函数作用域
+    function f(count) {
+        for (var i = 0; i < count; i++) {
+            console.log(i);
+        }
+        var i;
+        console.log(i);//10
+    }
+
+    f(10);
+
+    //块级作用域
+    function f2(count) {
+        (function () {
+            for (var i = 0; i < count; i++) {
+                console.log(i);
+            }
+        })();
+
+        var i;
+        console.log(i);//undefined
+    }
+
+    f(10);
+    f2(10);
+</script>
+</body>
+</html>
