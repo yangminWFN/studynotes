@@ -62,3 +62,11 @@
     ```
     git clone git@github.com:yangminWFN/gitskills.git
     ```
+
+11. 强制使用本地库替换远程库（全部已本地库为准）
+
+    ```bash
+    git push -f --set-upstream origin master:master
+    ```
+
+    
