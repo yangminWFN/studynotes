@@ -11,12 +11,12 @@ public class AllClimbPathTest {
             res.add(new LinkedList<>(track));
             return;
         }
-        for (int i = 0; i < arr.length; i++) {
-            if (n >= arr[i]) {
+        for (int value : arr) {
+            if (n >= value) {
                 //做选择
-                track.add(arr[i]);
+                track.add(value);
                 //递归调用
-                backTrack(n - arr[i], arr, track, res);
+                backTrack(n - value, arr, track, res);
                 //撤销选择
                 track.removeLast();
             }
@@ -24,11 +24,13 @@ public class AllClimbPathTest {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{1,2,3};
+        int[] arr = new int[]{1, 2, 3};
         int n = 7;
         List<List<Integer>> res = new LinkedList<>();
         LinkedList<Integer> track = new LinkedList<>();
         backTrack(n, arr, track, res);
         System.out.println(res);
+
+
     }
 }

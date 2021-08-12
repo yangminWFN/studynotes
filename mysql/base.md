@@ -101,8 +101,6 @@ select * from information_schema.table_constraints where table_name='employee';
 show index from employee;
 ```
 
-#### c）表的
-
 
 
 

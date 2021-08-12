@@ -1,5 +1,6 @@
 package edu.wit.multi_thread;
 
+import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -56,6 +57,7 @@ class Producer implements Runnable {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                break;
             }
         }
     }
@@ -77,6 +79,7 @@ class Consumer implements Runnable {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                break;
             }
         }
     }

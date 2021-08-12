@@ -146,15 +146,15 @@ public class QuickSort {
 
         // int[] b = ArrayUtil.copy_array(a);
         long startTime = System.currentTimeMillis();
-        double_quick_sort(a, 0, n - 1);
+        three_quick_sort(a, 0, n - 1);
         long endTime = System.currentTimeMillis();
-        System.out.println("排序后：" + Arrays.toString(a));
+        System.out.println("排序后：" + Arrays.toString(a)+a.length);
         System.out.println("耗费时间为：" + (endTime - startTime) / 1000.0 + " s");
 
-        long startTime1 = System.currentTimeMillis();
-        // base_quick_sort(b, 0, n - 1);
-        long endTime1 = System.currentTimeMillis();
-        System.out.println("耗费时间为：" + (endTime1 - startTime1) / 1000.0 + " s");
+//        long startTime1 = System.currentTimeMillis();
+//        // base_quick_sort(b, 0, n - 1);
+//        long endTime1 = System.currentTimeMillis();
+//        System.out.println("耗费时间为：" + (endTime1 - startTime1) / 1000.0 + " s");
     }
 
 }
