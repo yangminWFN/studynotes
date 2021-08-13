@@ -1,5 +1,7 @@
 package edu.wit.disign_mode;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * 懒汉单例模式
  */
