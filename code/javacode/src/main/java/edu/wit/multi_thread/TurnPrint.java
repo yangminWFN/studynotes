@@ -8,14 +8,16 @@ import java.util.concurrent.Semaphore;
  */
 public class TurnPrint {
     //定义三个信号量
-    private static Semaphore A = new Semaphore(1);
-    private static Semaphore B = new Semaphore(0);
-    private static Semaphore C = new Semaphore(0);
+    private static final Semaphore A = new Semaphore(1);
+    private static final Semaphore B = new Semaphore(0);
+    private static final Semaphore C = new Semaphore(0);
+
+    private static final int PRINTCOUNT = 100;
 
     static class ThreadA extends Thread {
         @Override
         public void run() {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < PRINTCOUNT; i++) {
                 try {
                     A.acquire();
                     System.out.print("A");
@@ -30,7 +32,7 @@ public class TurnPrint {
     static class ThreadB extends Thread {
         @Override
         public void run() {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < PRINTCOUNT; i++) {
                 try {
                     B.acquire();
                     System.out.print("B");
@@ -45,7 +47,7 @@ public class TurnPrint {
     static class ThreadC extends Thread {
         @Override
         public void run() {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < PRINTCOUNT; i++) {
                 try {
                     C.acquire();
                     System.out.print("C");
@@ -58,8 +60,10 @@ public class TurnPrint {
     }
 
     public static void main(String[] args) {
-        new ThreadA().start();
-        new ThreadB().start();
-        new ThreadC().start();
+        // new ThreadA().start();
+        // new ThreadB().start();
+        // new ThreadC().start();
+
+        System.out.println(Math.pow(2, 14));
     }
 }

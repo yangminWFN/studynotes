@@ -86,9 +86,7 @@ public class MaxHeap {
         System.out.println(Arrays.toString(data));
     }
 
-    public static void heap_sort(int[] a,int n){
 
-    }
 
     public static void main(String[] args) {
         int n = 10;

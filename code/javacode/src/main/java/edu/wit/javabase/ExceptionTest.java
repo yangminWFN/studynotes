@@ -4,7 +4,7 @@ public class ExceptionTest {
     public static String say(){
         try {
             System.out.println("我在try中");
-            // int i = 1 / 0;
+             int i = 1 / 0;
             return "try";
             
         } catch (Exception e) {
@@ -13,7 +13,7 @@ public class ExceptionTest {
             return "catch";
         }finally{
             System.out.println("我在finally中");
-            // return "finally";     
+//             return "finally";
         }
     }
 
