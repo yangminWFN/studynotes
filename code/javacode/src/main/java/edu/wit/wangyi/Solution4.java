@@ -2,7 +2,7 @@ package edu.wit.wangyi;
 
 public class Solution4 {
     //消耗
-    static int[] costNum = new int[]{1,2};
+    static int[] costNum = new int[]{2,1};
     static int max = Integer.MAX_VALUE;
 
     public static int minPath(int[][] input){
@@ -10,6 +10,7 @@ public class Solution4 {
         if(max == Integer.MAX_VALUE){
             return -1;
         }else{
+            // 减去第一步所耗费的
             return max - costNum[input[0][0]];
         }
     }
