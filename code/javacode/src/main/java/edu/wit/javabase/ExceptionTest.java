@@ -1,23 +1,24 @@
 package edu.wit.javabase;
+
 public class ExceptionTest {
 
-    public static String say(){
+    public static String say() {
         try {
             System.out.println("我在try中");
-             int i = 1 / 0;
+            int i = 1 / 0;
             return "try";
-            
+
         } catch (Exception e) {
             //TODO: handle exception
             System.out.println("我在catch中");
             return "catch";
-        }finally{
+        } finally {
             System.out.println("我在finally中");
 //             return "finally";
         }
     }
 
-    public static void NPETest(){
+    public static void NPETest() {
         try {
             Object obj = new Object();
             obj = null;
@@ -25,13 +26,14 @@ public class ExceptionTest {
         } catch (NullPointerException e) {
             //TODO: handle exception
             System.out.println("null pointer");
-        }catch (Exception e) {
+        } catch (Exception e) {
             //TODO: handle exception
             System.out.println("name");
         }
     }
 
     public static void main(String[] args) {
-        System.out.println(say());        
+        System.out.println(say());
+        
     }
 }

@@ -1,13 +1,18 @@
 package edu.wit.multi_thread;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.Semaphore;
 
+import javax.sound.sampled.SourceDataLine;
+
 /**
- * 三个线程交替打印十次ABC
- * 结果：ABCABCABCABCABCABCABCABCABCABC
+ * 三个线程交替打印十次ABC 结果：ABCABCABCABCABCABCABCABCABCABC
  */
 public class TurnPrint {
-    //定义三个信号量
+    // 定义三个信号量
     private static final Semaphore A = new Semaphore(1);
     private static final Semaphore B = new Semaphore(0);
     private static final Semaphore C = new Semaphore(0);
@@ -60,10 +65,10 @@ public class TurnPrint {
     }
 
     public static void main(String[] args) {
-        // new ThreadA().start();
-        // new ThreadB().start();
-        // new ThreadC().start();
+        new ThreadA().start();
+        new ThreadB().start();
+        new ThreadC().start();
+        
 
-        System.out.println(Math.pow(2, 14));
     }
 }

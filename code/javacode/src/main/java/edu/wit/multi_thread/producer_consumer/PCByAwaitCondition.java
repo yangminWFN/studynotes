@@ -4,6 +4,8 @@ import java.util.Random;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
+import javax.sound.sampled.SourceDataLine;
+
 public class PCByAwaitCondition {
 
     // 产品个数
@@ -30,6 +32,7 @@ public class PCByAwaitCondition {
                     Thread.sleep(new Random().nextInt(100));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+
                 }
 
                 lock.lock();
@@ -84,10 +87,10 @@ public class PCByAwaitCondition {
     /**
      * 使用Condition的await-signalAll方式实现生产者消费者模式
      * 使用两个Condition分别管理两个等待队列，每次生产者生产完成后就通知消费者消费，消费者消费完成后就通知生产者生产
-     * 效率比wait-notify要高，避免了不必要的通知
-     * 对于生产者来说，当队列满了，没有空间的时候，notFull条件不满足，那就调用await方法，
+     * 效率比wait-notify要高，避免了不必要的通知 对于生产者来说，当队列满了，没有空间的时候，notFull条件不满足，那就调用await方法，
      * 使当前线程等待。如果有空间，那么生产者放一个元素进去，notEmpty条件满足，调用notEmpty条件的signal/signalAll，仅唤醒等待消费的消费者线程（因为只有消费者线程在notEmpty这个频道等着）。
      */
+
     public static void main(String[] args) {
         for (int i = 1; i <= 10; i++) {
             Thread p = new Thread(new Producer());
@@ -96,6 +99,8 @@ public class PCByAwaitCondition {
             Thread c = new Thread(new Consumer());
             c.setName("消费者Thread-" + i);
             c.start();
+            
         }
+        
     }
 }

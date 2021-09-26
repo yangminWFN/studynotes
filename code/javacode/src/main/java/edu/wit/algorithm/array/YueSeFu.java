@@ -30,15 +30,16 @@ public class YueSeFu {
         int alive = n;
         //用来记录每次出圈的人序号的列表
         List<Integer> res = new LinkedList<>();
-        //当前报数的人的下标
-        int cur = 0;
+        int sum = 0;
+        //当前报数的人的下标，从 -1 开始，因为从0开始时已经算报了一个数了
+        int cur = -1;
         while (alive > 0) {
-            //计数，当计数达到 sum == m时表示找到最后一个报数的人
-            int sum = a[cur];
-            while (sum < m) {
+            // 直到报数到 m 时，cur指向的是当前报数的人的下标
+            while (sum != m) {
                 cur = (cur + 1) % n;
                 sum += a[cur];
             }
+            sum = 0;
             //人数减一
             alive--;
             //当前位置的人出圈
