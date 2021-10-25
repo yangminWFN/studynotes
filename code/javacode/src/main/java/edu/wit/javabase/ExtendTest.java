@@ -1,5 +1,12 @@
 package edu.wit.javabase;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
 interface A{
     void printA();
 }
@@ -28,8 +35,8 @@ class MI implements M{
 }
 
 public class ExtendTest {
-    public static void main(String[] args) {
-        MI mi = new MI();
+    public static void main(final String[] args) {
+        final MI mi = new MI();
         mi.printA();
         mi.printN();
         mi.printM();
