@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-12-03T09:51:22.575Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" etag="vo70lE8x96JlRCcOE6k8" version="20.6.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-12-03T09:59:35.515Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" etag="V32ktvV-QEE18AfNC_vB" version="20.6.0" type="github">
   <diagram id="SEg9n3wG__ElUB7BrxDW" name="第 1 页">
     <mxGraphModel dx="782" dy="436" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -88,23 +88,29 @@
         <mxCell id="45IXkjVk5gc_Z_pYW6Ua-42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="45IXkjVk5gc_Z_pYW6Ua-43" target="45IXkjVk5gc_Z_pYW6Ua-45">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-43" value="梳理当前元数据中心项目中包括v2、v3和v4的数据源登记、修改和删除接口" style="whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="527" y="705" width="195" height="57" as="geometry" />
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-43" value="在单机上搭建基于Kerberos安全认证的Zookeeper、Kafka测试环境，测试其连通性并将搭建流程整理到wiki中" style="whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="508" y="705" width="234" height="57" as="geometry" />
         </mxCell>
         <mxCell id="45IXkjVk5gc_Z_pYW6Ua-44" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="45IXkjVk5gc_Z_pYW6Ua-45" target="45IXkjVk5gc_Z_pYW6Ua-48">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-45" value="定时注册资源类型和操作到安全中心，兼容已有的数据源管理模块" style="whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="526" y="791" width="197" height="50" as="geometry" />
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-45" value="对Kerberos安全认证的Kafka进行调研，确定客户端访问所需上传的文件" style="whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="507" y="791" width="237" height="50" as="geometry" />
         </mxCell>
         <mxCell id="45IXkjVk5gc_Z_pYW6Ua-46" value="结束" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="574.5" y="953" width="100" height="34" as="geometry" />
+          <mxGeometry x="575" y="1030" width="100" height="34" as="geometry" />
         </mxCell>
-        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="45IXkjVk5gc_Z_pYW6Ua-48" target="45IXkjVk5gc_Z_pYW6Ua-46">
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;" edge="1" parent="1" source="45IXkjVk5gc_Z_pYW6Ua-49" target="45IXkjVk5gc_Z_pYW6Ua-46">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-48" value="使用AOP的方式实现审计消息批量发送到Kafka供安全中心消费" style="whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="526" y="875" width="197" height="47" as="geometry" />
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-51" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="45IXkjVk5gc_Z_pYW6Ua-48" target="45IXkjVk5gc_Z_pYW6Ua-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-48" value="文件上传接口存储Kafka数据源登记的文件信息，并提供listTopic接口实现" style="whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="506" y="876" width="238" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-49" value="与控制台联调并完成相关测试工作" style="whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="505.5" y="953" width="238" height="47" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
