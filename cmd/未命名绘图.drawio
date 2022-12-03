@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-12-03T09:27:17.572Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" etag="12m2wUcxZv3tgo11l7tP" version="20.6.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-12-03T09:29:14.188Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" etag="w_sGY7kwwG9bmseVuMqX" version="20.6.0" type="github">
   <diagram id="SEg9n3wG__ElUB7BrxDW" name="第 1 页">
     <mxGraphModel dx="782" dy="436" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -64,41 +64,28 @@
         <mxCell id="45IXkjVk5gc_Z_pYW6Ua-23" value="梳理当前元数据中心项目中包括v2、v3和v4的数据源登记、修改和删除接口" style="whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="227" y="718" width="183" height="57" as="geometry" />
         </mxCell>
-        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="45IXkjVk5gc_Z_pYW6Ua-25" target="45IXkjVk5gc_Z_pYW6Ua-28">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="45IXkjVk5gc_Z_pYW6Ua-25" value="定时注册资源类型和操作到安全中心，兼容已有的数据源管理模块" style="whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="220" y="805" width="197" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="45IXkjVk5gc_Z_pYW6Ua-28" target="45IXkjVk5gc_Z_pYW6Ua-31">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="45IXkjVk5gc_Z_pYW6Ua-28" target="45IXkjVk5gc_Z_pYW6Ua-34">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-28" value="测试metahub中已有&lt;br&gt;驱动支持该版本?" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="219" y="884" width="200" height="68" as="geometry" />
-        </mxCell>
-        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-29" value="是" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="427" y="884" width="30" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="45IXkjVk5gc_Z_pYW6Ua-31" target="45IXkjVk5gc_Z_pYW6Ua-32">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-31" value="与控制台、数据传输联调测试&lt;br&gt;新增数据源版本和对应驱动" style="whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="502" y="924" width="176" height="46" as="geometry" />
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="45IXkjVk5gc_Z_pYW6Ua-34">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="1090" as="sourcePoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="45IXkjVk5gc_Z_pYW6Ua-32" value="结束" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="540" y="834" width="100" height="34" as="geometry" />
         </mxCell>
-        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="45IXkjVk5gc_Z_pYW6Ua-34" target="45IXkjVk5gc_Z_pYW6Ua-31">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="45IXkjVk5gc_Z_pYW6Ua-34" value="选择合适的驱动版本开发新的Connector进行支持" style="whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="240" y="1082" width="150" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-35" value="否" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="324" y="952" width="30" height="26" as="geometry" />
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-36" value="使用AOP的方式实现审计消息发送" style="whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="220.5" y="890" width="197" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-37" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;" edge="1" parent="1" source="45IXkjVk5gc_Z_pYW6Ua-25" target="45IXkjVk5gc_Z_pYW6Ua-36">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="318.5" y="855" as="sourcePoint" />
+            <mxPoint x="320" y="1022" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
