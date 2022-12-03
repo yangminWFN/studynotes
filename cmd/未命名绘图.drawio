@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-12-03T14:35:34.874Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" etag="MUV1x59NL5bknf2njiSd" version="20.6.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-12-03T14:45:21.538Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" etag="TTmo2bMJs2n54dCQoLfv" version="20.6.0" type="github">
   <diagram id="SEg9n3wG__ElUB7BrxDW" name="第 1 页">
     <mxGraphModel dx="1479" dy="363" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -147,6 +147,45 @@
         </mxCell>
         <mxCell id="45IXkjVk5gc_Z_pYW6Ua-62" value="&lt;font color=&quot;#000000&quot;&gt;结束&lt;/font&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;fontColor=#FF0000;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="248" y="1543" width="83" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-68" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="45IXkjVk5gc_Z_pYW6Ua-69" target="45IXkjVk5gc_Z_pYW6Ua-71">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-69" value="开始" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="502.5" y="1242" width="93" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-70" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="45IXkjVk5gc_Z_pYW6Ua-71" target="45IXkjVk5gc_Z_pYW6Ua-73">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-71" value="平台侧新建hive库" style="whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="481.5" y="1299" width="136" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-72" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="45IXkjVk5gc_Z_pYW6Ua-73" target="45IXkjVk5gc_Z_pYW6Ua-75">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-73" value="hive库所属项目、项目组信息发送请求到元数据中心" style="whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="454" y="1360" width="191" height="37" as="geometry" />
+        </mxCell>
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-74" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#FF0000;" edge="1" parent="1" source="45IXkjVk5gc_Z_pYW6Ua-75" target="45IXkjVk5gc_Z_pYW6Ua-78">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-75" value="库项目信息存入DBMetaData表" style="whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="446" y="1430" width="206" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-76" value="hive数据源" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontColor=#FF0000;" vertex="1" parent="1">
+          <mxGeometry x="512" y="1202" width="78" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-77" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#FF0000;" edge="1" parent="1" source="45IXkjVk5gc_Z_pYW6Ua-78" target="45IXkjVk5gc_Z_pYW6Ua-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-78" value="库项目组信息存入DBTag表" style="whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="446" y="1489" width="206" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-79" value="&lt;font color=&quot;#000000&quot;&gt;结束&lt;/font&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;fontColor=#FF0000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="507.5" y="1543" width="83" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="45IXkjVk5gc_Z_pYW6Ua-83" value="控制台登记数据源信息" style="whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="195" y="1669" width="136" height="29" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
